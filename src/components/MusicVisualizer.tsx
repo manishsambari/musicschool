@@ -15,13 +15,16 @@ export default function MusicVisualizer() {
 
     // Set canvas size
     const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
+      const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1
+      canvas.width = canvas.offsetWidth * dpr
+      canvas.height = canvas.offsetHeight * dpr
+      ctx.scale(dpr, dpr)
     }
 
     resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', resizeCanvas)
+    }
 
     // Visualizer bars
     const bars: Array<{
@@ -89,7 +92,9 @@ export default function MusicVisualizer() {
     animate()
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas)
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', resizeCanvas)
+      }
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }
@@ -111,12 +116,12 @@ export default function MusicVisualizer() {
             key={i}
             className="absolute text-purple-400 text-2xl opacity-20"
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: window.innerHeight + 50,
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+              y: (typeof window !== 'undefined' ? window.innerHeight : 800) + 50,
             }}
             animate={{
               y: -50,
-              x: Math.random() * window.innerWidth,
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
             }}
             transition={{
               duration: 8 + Math.random() * 4,
