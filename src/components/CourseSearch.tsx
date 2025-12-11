@@ -13,7 +13,7 @@ interface Course {
   instructor: string
   isFeatured: boolean
   image: string
-}
+}// course object structure
 
 interface CourseSearchProps {
   courses: Course[]
