@@ -12,6 +12,7 @@ import CourseSearch from "@/components/CourseSearch";
 import musicCoursesData from "@/data/music_courses.json";
 
 
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]">
