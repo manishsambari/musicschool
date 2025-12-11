@@ -195,10 +195,9 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
                       Featured
                     </div>
                   )}
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
+                  <div
+                    style={{ backgroundImage: `url(${course.image})` }}
+                    className="w-full h-48 bg-cover bg-center rounded-lg mb-4"
                   />
                   <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">
                     {course.title}
