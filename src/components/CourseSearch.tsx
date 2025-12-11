@@ -17,7 +17,7 @@ interface Course {
 
 interface CourseSearchProps {
   courses: Course[]
-}
+}// array of course objects passed as prop
 
 const genres = ['All', 'Guitar', 'Piano', 'Vocal', 'Drums', 'Jazz', 'Production', 'Classical', 'Blues', 'Electronic']
 const priceRanges = [
