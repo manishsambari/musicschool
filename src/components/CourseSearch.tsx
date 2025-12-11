@@ -2,6 +2,7 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BackgroundGradient } from './ui/background-gradient'
+import Image from 'next/image'
 
 interface Course {
   id: number
@@ -195,9 +196,12 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
                       Featured
                     </div>
                   )}
-                  <div
-                    style={{ backgroundImage: `url(${course.image})` }}
-                    className="w-full h-48 bg-cover bg-center rounded-lg mb-4"
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    width={400}
+                    height={192}
+                    className="w-full h-48 object-cover rounded-lg mb-4"
                   />
                   <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">
                     {course.title}
