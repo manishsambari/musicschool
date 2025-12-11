@@ -52,7 +52,7 @@ function page() {
                   </div>
                   </CardBody>
                 </CardContainer>
-            ))
+            ))}
         </div>  
     </div>
   )
